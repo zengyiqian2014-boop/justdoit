@@ -3,20 +3,20 @@
 echo "Building SSS Exhibition Website..."
 
 # =========================
-# 目录结构
+# 1. 创建目录结构
 # =========================
 
-mkdir -p ancient singapore solution assets/css assets/img
+mkdir -p ancient singapore solution assets/css
 
 # =========================
-# CSS（SSS绿色+展览风）
+# 2. CSS（SSS绿色展览风）
 # =========================
 
 cat > assets/css/style.css <<EOF
 body {
     font-family: Arial;
     margin: 0;
-    background: linear-gradient(to bottom, #f3f9f4, #eaf6ec);
+    background: #f3f9f4;
     color: #1f2d1f;
 }
 
@@ -29,18 +29,21 @@ body {
 
 .card {
     background: white;
-    margin: 20px auto;
+    margin: 20px;
     padding: 20px;
-    width: 85%;
     border-radius: 12px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
     border-left: 6px solid #2ecc71;
+    transition: 0.3s;
+}
+
+.card:hover {
+    transform: scale(1.02);
 }
 
 .grid {
     display: flex;
     gap: 20px;
-    margin: 30px;
+    margin: 20px;
 }
 
 .box {
@@ -48,8 +51,6 @@ body {
     background: white;
     padding: 20px;
     border-radius: 12px;
-    text-align: center;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.08);
     transition: 0.3s;
 }
 
@@ -73,7 +74,7 @@ a {
 EOF
 
 # =========================
-# INDEX (主页)
+# 3. 主页面
 # =========================
 
 cat > index.html <<EOF
@@ -88,14 +89,14 @@ cat > index.html <<EOF
 
 <div class="header">
     <h1>Learning From Ancient Civilisations</h1>
-    <p>St. Stephen's School Sustainability Exhibition</p>
+    <p>St. Stephen’s School Sustainability Exhibition</p>
 </div>
 
 <div class="card">
     <h2>About This Project</h2>
     <p>
         Inspired by SSS values: Smart, Selfless, Sustainability.
-        This project shows how ancient civilisations influence Singapore's sustainability.
+        This exhibition explores ancient solutions and Singapore’s modern sustainability.
     </p>
 </div>
 
@@ -103,7 +104,7 @@ cat > index.html <<EOF
 
 <div class="box">
     <h3>Ancient Civilisations</h3>
-    <p>Egypt, Indus Valley, Rome</p>
+    <p>Egypt, Indus Valley, Greece</p>
     <a href="ancient/">Enter</a>
 </div>
 
@@ -122,7 +123,7 @@ cat > index.html <<EOF
 </div>
 
 <footer class="footer">
-    <p>© 2026 Made by Eric. All rights reserved.</p>
+© 2026 Made by Eric. All rights reserved.
 </footer>
 
 </body>
@@ -130,7 +131,7 @@ cat > index.html <<EOF
 EOF
 
 # =========================
-# ANCIENT
+# 4. Ancient pages
 # =========================
 
 mkdir -p ancient
@@ -139,66 +140,50 @@ cat > ancient/index.html <<EOF
 <h1>Ancient Civilisations</h1>
 
 <div class="card">
-Ancient civilisations used natural systems like rivers for sustainability.
+Ancient civilisations used natural systems like rivers and water power for survival.
 </div>
 
 <ul>
-<li><a href="egypt.html">Egypt</a></li>
-<li><a href="indus.html">Indus Valley</a></li>
-<li><a href="rome.html">Rome</a></li>
+<li><a href="egypt.html">Egypt - Nile Irrigation</a></li>
+<li><a href="indus.html">Indus Valley - Cooling Architecture</a></li>
+<li><a href="greece.html">Greece - Hydropower</a></li>
 </ul>
 
 <a href="../index.html">Back</a>
-
-<footer class="footer">
-© 2026 Made by Eric. All rights reserved.
-</footer>
 EOF
 
 cat > ancient/egypt.html <<EOF
-<h1>Ancient Egypt</h1>
+<h1>Egypt - Nile Irrigation</h1>
 
 <div class="card">
-Nile River flooding provided irrigation and fertile soil for farming.
+Based on basin irrigation, Egyptians used Nile floods to naturally irrigate crops.
 </div>
 
 <a href="index.html">Back</a>
-
-<footer class="footer">
-© 2026 Made by Eric. All rights reserved.
-</footer>
 EOF
 
 cat > ancient/indus.html <<EOF
 <h1>Indus Valley</h1>
 
 <div class="card">
-Advanced drainage systems and planned cities supported sustainability.
+Homes used natural ventilation and cooling architecture to reduce heat.
 </div>
 
 <a href="index.html">Back</a>
-
-<footer class="footer">
-© 2026 Made by Eric. All rights reserved.
-</footer>
 EOF
 
-cat > ancient/rome.html <<EOF
-<h1>Ancient Rome</h1>
+cat > ancient/greece.html <<EOF
+<h1>Ancient Greece</h1>
 
 <div class="card">
-Aqueducts transported clean water efficiently across cities.
+Early hydropower systems were used to reduce manual labour.
 </div>
 
 <a href="index.html">Back</a>
-
-<footer class="footer">
-© 2026 Made by Eric. All rights reserved.
-</footer>
 EOF
 
 # =========================
-# SINGAPORE
+# 5. Singapore pages
 # =========================
 
 mkdir -p singapore
@@ -207,7 +192,7 @@ cat > singapore/index.html <<EOF
 <h1>Singapore Sustainability Issues</h1>
 
 <div class="card">
-Singapore faces water scarcity, land limitation, and climate challenges.
+Singapore faces water scarcity, limited land, and climate challenges.
 </div>
 
 <ul>
@@ -216,10 +201,6 @@ Singapore faces water scarcity, land limitation, and climate challenges.
 </ul>
 
 <a href="../index.html">Back</a>
-
-<footer class="footer">
-© 2026 Made by Eric. All rights reserved.
-</footer>
 EOF
 
 cat > singapore/water.html <<EOF
@@ -230,28 +211,20 @@ NEWater recycles wastewater into clean drinking water.
 </div>
 
 <a href="index.html">Back</a>
-
-<footer class="footer">
-© 2026 Made by Eric. All rights reserved.
-</footer>
 EOF
 
 cat > singapore/green.html <<EOF
 <h1>Green City</h1>
 
 <div class="card">
-Singapore integrates greenery into urban planning for sustainability.
+Singapore integrates greenery into urban planning.
 </div>
 
 <a href="index.html">Back</a>
-
-<footer class="footer">
-© 2026 Made by Eric. All rights reserved.
-</footer>
 EOF
 
 # =========================
-# SOLUTION
+# 6. Solution page
 # =========================
 
 mkdir -p solution
@@ -264,22 +237,18 @@ Smart Water Recycling System inspired by ancient irrigation systems.
 </div>
 
 <div class="card">
-Rainwater is collected, treated, and reused for parks and greenery.
+Rainwater is collected, treated, and reused for parks and farming.
 </div>
 
 <a href="../index.html">Back</a>
-
-<footer class="footer">
-© 2026 Made by Eric. All rights reserved.
-</footer>
 EOF
 
 # =========================
-# GIT PUSH
+# 7. GitHub deploy
 # =========================
 
 git add .
-git commit -m "SSS exhibition full website"
+git commit -m "SSS exhibition website updated"
 git push origin main
 
-echo "DONE - Website deployed"
+echo "DONE - Website deployed to GitHub Pages"

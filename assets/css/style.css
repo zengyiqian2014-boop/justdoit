@@ -1,7 +1,7 @@
 body {
     font-family: Arial;
     margin: 0;
-    background: linear-gradient(to bottom, #f3f9f4, #eaf6ec);
+    background: #f3f9f4;
     color: #1f2d1f;
 }
 
@@ -14,18 +14,21 @@ body {
 
 .card {
     background: white;
-    margin: 20px auto;
+    margin: 20px;
     padding: 20px;
-    width: 85%;
     border-radius: 12px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
     border-left: 6px solid #2ecc71;
+    transition: 0.3s;
+}
+
+.card:hover {
+    transform: scale(1.02);
 }
 
 .grid {
     display: flex;
     gap: 20px;
-    margin: 30px;
+    margin: 20px;
 }
 
 .box {
@@ -33,8 +36,6 @@ body {
     background: white;
     padding: 20px;
     border-radius: 12px;
-    text-align: center;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.08);
     transition: 0.3s;
 }
 
